@@ -45,6 +45,7 @@ app.patch("/app/update/user/:id", (req, res) => {
 app.delete("/app/delete/user/:id", (req, res) => {	
 	db.prepare("DELETE * FROM userinfo WHERE id = " + req.params.id).all();
 	res.json({"message":"1 record deleted: ID " + req.params.id + " (200)"})
+	res.status(200);
 });
 // Default response for any other request
 app.use(function(req, res){
