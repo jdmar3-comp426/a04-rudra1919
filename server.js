@@ -39,7 +39,7 @@ app.get("/app/users", (req, res) => {
 // READ a single user (HTTP method GET) at endpoint /app/user/:id
 app.get("/app/user/:id", (req, res) => {	
 	const stmt = db.prepare("SELECT * FROM userinfo Where id = " + req.params.id).all();
-	res.status(200).json(stmt);
+	res.status(200).json(stmt[0]);
 });
 
 // UPDATE a single user (HTTP method PATCH) at endpoint /app/update/user/:id
